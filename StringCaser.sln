@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCaser", "StringCaser\StringCaser.csproj", "{042D98C7-3F69-4B28-8041-95C9590F5081}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{042D98C7-3F69-4B28-8041-95C9590F5081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042D98C7-3F69-4B28-8041-95C9590F5081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042D98C7-3F69-4B28-8041-95C9590F5081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042D98C7-3F69-4B28-8041-95C9590F5081}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75C9C7BE-89B2-439A-B9D7-2C2228489E05}
+	EndGlobalSection
+EndGlobal

@@ -11,29 +11,23 @@ namespace StringCaser
     {
         static void Main(string[] args)
         {
-            //Test();
-            BenchmarkRunner.Run<Bench>();
-        }
-
-        private static void Test()
-        {
             var b = new Bench();
+            var tests = new Tests();
 
-            Console.WriteLine("ab cases:");
-            Print(b.GetVariantsBezruchenko("ab"));
+            var passed = true;
 
-            Console.WriteLine("abc cases:");
-            Print(b.GetVariantsBezruchenko("abc"));
+            passed &= tests.Execute(nameof(b.GetVariatnsChechin), b.GetVariatnsChechin);
+            passed &= tests.Execute(nameof(b.GetVariantsBezruchenko), b.GetVariantsBezruchenko);
+            passed &= tests.Execute(nameof(b.GetVariantsKurcev), b.GetVariantsKurcev);
+            passed &= tests.Execute(nameof(b.GetVariantsPanov), b.GetVariantsPanov);
+            passed &= tests.Execute(nameof(b.GetVariantsAntonov), b.GetVariantsAntonov);
+            passed &= tests.Execute(nameof(b.GetVariantsRaznopolov), b.GetVariantsRaznopolov);
+            passed &= tests.Execute(nameof(b.GetVariantsRaznopolov2), b.GetVariantsRaznopolov2);
+            passed &= tests.Execute(nameof(b.GetVariantsAntonov2), b.GetVariantsAntonov2);
 
-            Console.WriteLine("qwerty cases:");
-            Print(b.GetVariantsBezruchenko("qwerty"));
-        }
-
-        private static void Print(string[] strs)
-        {
-            for (var i = 0; i < strs.Length; i++)
+            if (passed)
             {
-                Console.WriteLine($"{(i + 1),5}: {strs[i]}");
+                BenchmarkRunner.Run<Bench>();
             }
         }
     }
@@ -76,26 +70,19 @@ namespace StringCaser
         [Benchmark]
         public string[] GetVariantsRaznopolov()
         {
-            var chars = INPUT.ToCharArray();
-            var size = (int)Math.Pow(2, INPUT.Length);
-            List<string> result = new List<string>(size);
-
-            GetVariantsRaznopolov(chars, 0, result);
-
-            return result.ToArray();
+            return GetVariantsRaznopolov(INPUT);
         }
 
         [Benchmark]
         public string[] GetVariantsRaznopolov2()
         {
-            var chars = INPUT.ToCharArray();
-            var size = (int)Math.Pow(2, INPUT.Length);
-            var result = new string[size];
-            var resultIndex = 0;
+            return GetVariantsRaznopolov2(INPUT);
+        }
 
-            GetVariantsRaznopolov2(chars, 0, result, ref resultIndex);
-
-            return result;
+        [Benchmark]
+        public string[] GetVariantsAntonov2()
+        {
+            return GetVariantsAntonov2(INPUT);
         }
 
         public string[] GetVariatnsChechin(string input)
@@ -202,7 +189,18 @@ namespace StringCaser
             });
         }
 
-        public void GetVariantsRaznopolov(char[] span, int index, List<string> result)
+        public string[] GetVariantsRaznopolov(string input)
+        {
+            var chars = input.ToCharArray();
+            var size = (int)Math.Pow(2, input.Length);
+            List<string> result = new List<string>(size);
+
+            GetVariantsRaznopolovInternal(chars, 0, result);
+
+            return result.ToArray();
+        }
+
+        public void GetVariantsRaznopolovInternal(char[] span, int index, List<string> result)
         {
             if (index == span.Length)
             {
@@ -210,13 +208,25 @@ namespace StringCaser
                 return;
             }
 
-            GetVariantsRaznopolov(span, index + 1, result);
+            GetVariantsRaznopolovInternal(span, index + 1, result);
 
             span[index] = Revert(span[index]);
-            GetVariantsRaznopolov(span, index + 1, result);
+            GetVariantsRaznopolovInternal(span, index + 1, result);
         }
 
-        private void GetVariantsRaznopolov2(char[] input, int inputIndex, string[] result, ref int resultIndex)
+        public string[] GetVariantsRaznopolov2(string input)
+        {
+            var chars = input.ToCharArray();
+            var size = (int)Math.Pow(2, input.Length);
+            var result = new string[size];
+            var resultIndex = 0;
+
+            GetVariantsRaznopolov2Internal(chars, 0, result, ref resultIndex);
+
+            return result;
+        }
+
+        private void GetVariantsRaznopolov2Internal(char[] input, int inputIndex, string[] result, ref int resultIndex)
         {
             if (inputIndex == input.Length)
             {
@@ -224,10 +234,10 @@ namespace StringCaser
                 return;
             }
 
-            GetVariantsRaznopolov2(input, inputIndex + 1, result, ref resultIndex);
+            GetVariantsRaznopolov2Internal(input, inputIndex + 1, result, ref resultIndex);
 
             input[inputIndex] = Revert(input[inputIndex]);
-            GetVariantsRaznopolov2(input, inputIndex + 1, result, ref resultIndex);
+            GetVariantsRaznopolov2Internal(input, inputIndex + 1, result, ref resultIndex);
         }
 
         private char Revert(char ch)
@@ -247,6 +257,24 @@ namespace StringCaser
                 for (var i = 0; i < verticalLength; i++)
                 {
                     result[i] += i % (variantsCount / Math.Pow(2, j)) < variantsCount / Math.Pow(2, j + 1) ? input[j] : char.ToUpper(input[j]);
+                }
+            }
+
+            return result;
+        }
+
+        public string[] GetVariantsAntonov2(string input)
+        {
+            var variantsCount = Convert.ToInt32(Math.Pow(2, input.Length));
+            var result = new string[variantsCount];
+
+            for (var j = 0; j < input.Length; j++)
+            {
+                var a = variantsCount / Math.Pow(2, j);
+                var b = variantsCount / Math.Pow(2, j + 1);
+                for (var i = 0; i < variantsCount; i++)
+                {
+                    result[i] += i % a < b ? input[j] : char.ToUpper(input[j]);
                 }
             }
 

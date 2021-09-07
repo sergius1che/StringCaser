@@ -85,6 +85,7 @@ namespace StringCaser
             return GetVariantsAntonov2(INPUT);
         }
 
+        #region Chechin
         public string[] GetVariatnsChechin(string input)
         {
             input = input.ToLower();
@@ -111,6 +112,9 @@ namespace StringCaser
             return result;
         }
 
+        #endregion
+
+        #region Bezruchenko
         public string[] GetVariantsBezruchenko(string input)
         {
             ulong totalLength = (ulong)Math.Pow(2.0, input.Length);
@@ -137,6 +141,9 @@ namespace StringCaser
             return res;
         }
 
+        #endregion
+
+        #region Kurtcev
         public string[] GetVariantsKurcev(string input)
         {
             var n = 1 << input.Length;
@@ -160,6 +167,9 @@ namespace StringCaser
             return results;
         }
 
+        #endregion
+
+        #region Panov
         public string[] GetVariantsPanov(string input)
         {
             IEnumerable<string> result = new List<string>
@@ -188,7 +198,9 @@ namespace StringCaser
                 return result;
             });
         }
+        #endregion
 
+        #region Raznopolov
         public string[] GetVariantsRaznopolov(string input)
         {
             var chars = input.ToCharArray();
@@ -243,6 +255,9 @@ namespace StringCaser
         private char Revert(char ch)
             => Char.IsLower(ch) ? Char.ToUpper(ch) : Char.ToLower(ch);
 
+        #endregion
+
+        #region Antonov
         public string[] GetVariantsAntonov(string input)
         {
             var variantsCount = Convert.ToInt32(Math.Pow(2, input.Length));
@@ -280,5 +295,7 @@ namespace StringCaser
 
             return result;
         }
+
+        #endregion
     }
 }

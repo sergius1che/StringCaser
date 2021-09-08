@@ -111,40 +111,6 @@ namespace StringCaser
             return result;
         }
 
-        public string[] GetVariatnsChechin2(string input)
-        {
-            var n = 1 << input.Length;
-            var result = new string[n];
-            var map = new char[input.Length, n];
-
-            for (int i = 0; i < input.Length; i++)
-            {
-                var mid = n >> (i + 1);
-
-                for (int y = 0; y < n; y++)
-                {
-
-                }
-            }
-
-            return result;
-        }
-
-        private void Fill(char[,] map, char ch, int n, int col, int start, int end, string input)
-        {
-            for (int i = start; i < end; i++)
-            {
-                map[col, i] = ch;
-            }
-
-            var mid = n >> 1;
-
-            if (mid > 0)
-            {
-
-            }
-        }
-
         #endregion
 
         #region Bezruchenko
@@ -249,7 +215,7 @@ namespace StringCaser
         {
             if (index == span.Length)
             {
-                result.Add(span.ToString());
+                result.Add(new string(span));
                 return;
             }
 
@@ -275,7 +241,7 @@ namespace StringCaser
         {
             if (inputIndex == input.Length)
             {
-                result[resultIndex++] = input.ToString();
+                result[resultIndex++] = new string(input);
                 return;
             }
 

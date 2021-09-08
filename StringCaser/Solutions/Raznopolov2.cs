@@ -7,7 +7,7 @@ namespace StringCaser.Solutions
     public class Raznopolov2 : ISolution
     {
         [Arguments("qwertyuiop")]
-        [Benchmark(Description = "Raznopolov2 variant")]
+        [Benchmark]
         public string[] Do(string input)
         {
             var chars = input.ToCharArray();

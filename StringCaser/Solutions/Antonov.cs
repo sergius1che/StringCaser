@@ -7,7 +7,7 @@ namespace StringCaser.Solutions
     public class Antonov : ISolution
     {
         [Arguments("qwertyuiop")]
-        [Benchmark(Description = "Antonov variant")]
+        [Benchmark]
         public string[] Do(string input)
         {
             var variantsCount = Convert.ToInt32(Math.Pow(2, input.Length));

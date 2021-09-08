@@ -7,7 +7,7 @@ namespace StringCaser.Solutions
     public class Chechin : ISolution
     {
         [Arguments("qwertyuiop")]
-        [Benchmark(Description = "Chechin variant")]
+        [Benchmark]
         public string[] Do(string input)
         {
             var n = 1 << input.Length;

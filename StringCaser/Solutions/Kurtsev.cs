@@ -8,7 +8,7 @@ namespace StringCaser.Solutions
     public class Kurtsev : ISolution
     {
         [Arguments("qwertyuiop")]
-        [Benchmark(Description = "Kurtsev variant")]
+        [Benchmark]
         public string[] Do(string input)
         {
             var n = input.Length;

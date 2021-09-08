@@ -8,7 +8,7 @@ namespace StringCaser.Solutions
     public class Panov : ISolution
     {
         [Arguments("qwertyuiop")]
-        [Benchmark(Description = "Panov variant")]
+        [Benchmark]
         public string[] Do(string input)
         {
             IEnumerable<string> result = new List<string>

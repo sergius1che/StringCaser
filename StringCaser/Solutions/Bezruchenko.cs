@@ -7,7 +7,7 @@ namespace StringCaser.Solutions
     public class Bezruchenko : ISolution
     {
         [Arguments("qwertyuiop")]
-        [Benchmark(Description = "Bezruchenko variant")]
+        [Benchmark]
         public string[] Do(string input)
         {
             ulong totalLength = (ulong)Math.Pow(2.0, input.Length);

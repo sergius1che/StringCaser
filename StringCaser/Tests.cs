@@ -10,12 +10,17 @@ namespace StringCaser
         private string[] _expect1 = new[] { "ab", "Ab", "aB", "AB" };
         private string[] _expect2 = new[] { "abc", "Abc", "aBc", "ABc", "abC", "AbC", "aBC", "ABC" };
 
-        public bool Execute(string testName, Func<string, string[]> func)
+        public static Tests Instance => new Tests();
+
+        public bool Execute(params Type[] solutions)
         {
             var passed = true;
-
-            passed &= ExecuteInternal(testName, func, _test1, _expect1);
-            passed &= ExecuteInternal(testName, func, _test2, _expect2);
+            foreach (var solution in solutions)
+            {
+                var instance = (ISolution)Activator.CreateInstance(solution);
+                passed &= ExecuteInternal(solution.Name, instance.Do, _test1, _expect1);
+                passed &= ExecuteInternal(solution.Name, instance.Do, _test2, _expect2);
+            }
 
             return passed;
         }

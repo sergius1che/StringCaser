@@ -15,28 +15,26 @@ AMD Ryzen 5 1500X, 1 CPU, 8 logical and 4 physical cores
 
 |        Type | Method |      input |         Mean |        Error |       StdDev |     Gen 0 |    Gen 1 |    Gen 2 | Allocated |
 |------------ |------- |----------- |-------------:|-------------:|-------------:|----------:|---------:|---------:|----------:|
-|     Antonov |     Do | qwertyuiop |    524.77 us |    10.449 us |    13.214 us |  147.4609 |        - |        - |    604 KB |
-|    Antonov2 |     Do | qwertyuiop |    475.69 us |     1.592 us |     1.411 us |  142.5781 |   0.4883 |        - |    584 KB |
-| Bezruchenko |     Do | qwertyuiop |    341.50 us |     1.139 us |     0.951 us |  142.5781 |   0.4883 |        - |    584 KB |
-|     Chechin |     Do | qwertyuiop |     52.09 us |     0.375 us |     0.332 us |   13.6719 |   0.0610 |        - |     56 KB |
-|     Kurtsev |     Do | qwertyuiop |    339.85 us |     3.758 us |     3.515 us |   83.9844 |   0.4883 |        - |    344 KB |
-|     Novikov |     Do | qwertyuiop |    214.97 us |     2.098 us |     1.859 us |   70.8008 |   0.2441 |        - |    290 KB |
-|       Panov |     Do | qwertyuiop |    204.30 us |     0.531 us |     0.443 us |   65.6738 |   0.2441 |        - |    269 KB |
-|  Raznopolov |     Do | qwertyuiop |     44.84 us |     0.227 us |     0.190 us |   15.6860 |   0.0610 |        - |     64 KB |
-| Raznopolov2 |     Do | qwertyuiop |     45.19 us |     0.220 us |     0.183 us |   13.6719 |   0.0610 |        - |     56 KB |
-|       Yurin |     Do | qwertyuiop | 73,924.66 us | 1,412.774 us | 1,252.388 us | 9428.5714 | 857.1429 | 142.8571 | 41,416 KB |
+|     Antonov |     Do | qwertyuiop |    518.68 us |     5.176 us |     4.842 us |  147.4609 |        - |        - |    604 KB |
+|    Antonov2 |     Do | qwertyuiop |    497.74 us |     9.850 us |    12.808 us |  142.5781 |   0.4883 |        - |    584 KB |
+| Bezruchenko |     Do | qwertyuiop |    345.96 us |     1.680 us |     1.489 us |  142.5781 |   0.4883 |        - |    584 KB |
+|     Chechin |     Do | qwertyuiop |     54.07 us |     1.040 us |     1.197 us |   13.6719 |   0.0610 |        - |     56 KB |
+|     Kurtsev |     Do | qwertyuiop |    351.15 us |     5.639 us |     4.709 us |   83.9844 |   0.4883 |        - |    344 KB |
+|     Novikov |     Do | qwertyuiop |    224.19 us |     4.261 us |     4.376 us |   70.8008 |   0.2441 |        - |    290 KB |
+|       Panov |     Do | qwertyuiop |    211.76 us |     2.842 us |     2.373 us |   65.6738 |   0.2441 |        - |    269 KB |
+|  Raznopolov |     Do | qwertyuiop |     45.46 us |     0.864 us |     0.675 us |   15.6860 |   0.0610 |        - |     64 KB |
+| Raznopolov2 |     Do | qwertyuiop |     46.51 us |     0.830 us |     0.776 us |   13.6719 |   0.0610 |        - |     56 KB |
+|   Samarskii |     Do | qwertyuiop |    122.24 us |     0.666 us |     0.556 us |   50.7813 |   0.2441 |        - |    208 KB |
+|       Yurin |     Do | qwertyuiop | 78,269.56 us | 1,518.553 us | 2,495.026 us | 9428.5714 | 714.2857 | 142.8571 | 41,416 KB |
 
 // * Hints *
 Outliers
-  Antonov.Do: Default     -> 1 outlier  was  removed (689.52 us)
-  Antonov2.Do: Default    -> 1 outlier  was  removed (482.02 us)
-  Bezruchenko.Do: Default -> 2 outliers were removed, 3 outliers were detected (339.34 us, 346.20 us, 360.36 us)
-  Chechin.Do: Default     -> 1 outlier  was  removed (54.34 us)
-  Novikov.Do: Default     -> 1 outlier  was  removed (226.53 us)
-  Panov.Do: Default       -> 2 outliers were removed (205.94 us, 209.39 us)
-  Raznopolov.Do: Default  -> 2 outliers were removed (45.42 us, 45.51 us)
-  Raznopolov2.Do: Default -> 2 outliers were removed (45.97 us, 47.28 us)
-  Yurin.Do: Default       -> 1 outlier  was  removed (77.11 ms)
+  Bezruchenko.Do: Default -> 1 outlier  was  removed (352.83 us)
+  Kurtsev.Do: Default     -> 2 outliers were removed (370.80 us, 389.41 us)
+  Novikov.Do: Default     -> 1 outlier  was  removed (293.00 us)
+  Panov.Do: Default       -> 2 outliers were removed (220.00 us, 221.16 us)
+  Raznopolov.Do: Default  -> 3 outliers were removed (48.79 us..55.22 us)
+  Samarskii.Do: Default   -> 2 outliers were removed (125.33 us, 125.54 us)
 
 // * Legends *
   input     : Value of the 'input' parameter
